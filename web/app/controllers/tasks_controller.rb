@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery :except => [:create, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
