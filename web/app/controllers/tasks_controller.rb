@@ -8,17 +8,14 @@ class TasksController < ApplicationController
     @tasks = Task.all
     respond_to do |format|
       format.html
-      format.json { render json: @tasks }
+      format.json
     end
   end
 
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-    respond_to do |format|
-      format.html
-      format.json { render json: @tasks }
-    end
+    @task = Task.find(params[:id])
   end
 
   # GET /tasks/new
@@ -71,6 +68,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
+    @task = Task.find(params[:id])
     @task.destroy
     respond_to do |format|
       format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
