@@ -8,38 +8,21 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
-var TodoKobetsunonakami = [String]()
+
 class AddController: UIViewController {
-    
-     var newJson: JSON!
-    
     @IBOutlet weak var TodoTextField: UITextField!
-    @IBAction func TodoAddButton(_ sender: Any) {
-        //変数に入力内容を入れる
-        TodoKobetsunonakami.append(TodoTextField.text!)
-        //追加ボタンを押したらフィールドを空にする
-        TodoTextField.text = ""
-        //変数の中身をUDに追加
-        UserDefaults.standard.set( TodoKobetsunonakami, forKey: "TodoList" )
-    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AddController")
 
         // Do any additional setup after loading the view.
         //let url:String = "http://localhost:3000/tasks.json" //URLを定義
-        // JSON持ってくるやつ
-        Alamofire.request("http://localhost:3000/tasks.json").responseJSON { response in
-            
-            //let jsonStr: String = "{\"iida\": \"takuma\"}"
-            //let jsonStr: String!
-            let json = JSON(response.result.value)
-            if let title = json[0]["title"].string {
-                print(title)
-            }
-        }
+        
+    }
+    
+    @IBAction func TodoAddButton(_ sender: Any) {
         
         // 新しいタスク作るやつ
         let url = "http://localhost:3000/tasks.json"
@@ -48,7 +31,7 @@ class AddController: UIViewController {
         ]
         let parameters:[String: Any] = [
             "task": [
-                "title": "新しいタスク",
+                "title": TodoTextField.text!,
                 "is_done": false
             ]
         ]
@@ -57,7 +40,8 @@ class AddController: UIViewController {
                 print(result)
             }
         }
-        
+        //追加ボタンを押したらフィールドを空にする
+        TodoTextField.text = ""
     }
 
     override func didReceiveMemoryWarning() {
