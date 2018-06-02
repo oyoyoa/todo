@@ -1,24 +1,77 @@
-# README
+# 仕様書
+***
+　
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## タスク一覧　[/tasks]
+---
 
-Things you may want to cover:
+### 入力 [POST]
+`
+curl -X POST 'http://localhost:3000/tasks' -H "Content-Type: application/json" -d ' todo.json '
+`
 
-* Ruby version
+| todo.json |
+|------------|
+todo.jsonの部分に以下の情報を入れてあげると、その情報をサーバーに入れることができる。
+```
+{
+    "task": {
+        "title": "hogehoge"
+    }
+}
+```
 
-* System dependencies
+### 出力 [GET]
+| 返却データ |
+|------------|
 
-* Configuration
+| key        | 型     | 値の説明                 |
+|------------|--------|--------------------------|
+| id         | Int    | タスクのID               |
+| title      | String | タスクのタイトル         |
+| is_done    | Bool   | タスクが完了したかどうか |
+| created_at | String | タスクの送信時刻         |
+| updated_at | String | タスクの最終編集時刻     |
+| url        | String | アクセスURL              |
+　　
+| サンプルレスポンス |
+| ------------------ |
+JSON形式でレスポンスを返します。
+```
+{
+    "id":16,
+    "title":"hogehoge",
+    "is_done":false,
+    "created_at":"2018-05-31T05:32:46.171Z",
+    "updated_at":"2018-05-31T08:42:15.036Z",
+    "url":"http://localhost:3000/tasks/16.json"
+}
+```
 
-* Database creation
+## タスク編集・削除　[/tasks/:id]
+---
 
-* Database initialization
+| key        | 型     | 値の説明                 |
+|------------|--------|--------------------------|
+| id         | Int    | タスクのID               |
 
-* How to run the test suite
+### 編集 [PATCH]
+`curl -X PATCH 'http://localhost:3000/tasks/:id' -H "Content-Type:application/json" -d 'todo.json' `
+| todo.json |
+|------------|
+todo.jsonの部分に以下の情報を入れてあげると、その情報をサーバーに入れることができる。
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+{
+    "task": {
+        "is_done": true
+    }
+}
+```
 
-* Deployment instructions
-
-* ...
+### 削除 [DELETE]
+タスクを削除する
+`curl -X DELETE 'http://localhost:3000/tasks/:id' -H "Content-Type:application/json"`
+| key        | 型     | 値の説明                 |
+|------------|--------|--------------------------|
+| id         | Int    | タスクのID               |
