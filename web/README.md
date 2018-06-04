@@ -71,6 +71,7 @@ todo.jsonの部分に以下の情報を入れてあげると、その情報を�
 
 ### 削除 [DELETE]
 タスクを削除する
+
 `curl -X DELETE 'http://localhost:3000/tasks/:id' -H "Content-Type:application/json"`
 
 | key        | 型     | 値の説明                 |
