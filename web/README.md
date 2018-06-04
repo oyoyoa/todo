@@ -4,13 +4,11 @@
 ## タスク一覧　[/tasks]
 
 ### 入力 [POST]
-`
-curl -X POST 'http://localhost:3000/tasks' -H "Content-Type: application/json" -d ' todo.json '
-`
-　　
+`curl -X POST 'http://localhost:3000/tasks' -H "Content-Type: application/json" -d ' todo.json '`
+
 | todo.json |
-|------------|
-　　
+|-----------|
+
 todo.jsonの部分に以下の情報を入れてあげると、その情報をサーバーに入れることができる。
 ```
 {
@@ -19,7 +17,7 @@ todo.jsonの部分に以下の情報を入れてあげると、その情報を�
     }
 }
 ```
-　　
+
 ### 出力 [GET]
 | 返却データ |
 |------------|
@@ -32,10 +30,10 @@ todo.jsonの部分に以下の情報を入れてあげると、その情報を�
 | created_at | String | タスクの送信時刻         |
 | updated_at | String | タスクの最終編集時刻     |
 | url        | String | アクセスURL              |
-　　
+
 | サンプルレスポンス |
 | ------------------ |
-　　
+
 JSON形式でレスポンスを返します。
 ```
 {
@@ -47,22 +45,22 @@ JSON形式でレスポンスを返します。
     "url":"http://localhost:3000/tasks/16.json"
 }
 ```
-　　
+
 ## タスク編集・削除　[/tasks/:id]
 ---
-　　
+
 | key        | 型     | 値の説明                 |
 |------------|--------|--------------------------|
 | id         | Int    | タスクのID               |
-　　
+
 ### 編集 [PATCH]
 `curl -X PATCH 'http://localhost:3000/tasks/:id' -H "Content-Type:application/json" -d 'todo.json' `
-　　
+
 | todo.json |
 |------------|
-　　
+
 todo.jsonの部分に以下の情報を入れてあげると、その情報をサーバーに入れることができる。
-　　
+
 ```
 {
     "task": {
@@ -70,19 +68,19 @@ todo.jsonの部分に以下の情報を入れてあげると、その情報を�
     }
 }
 ```
-　　
+
 ### 削除 [DELETE]
 タスクを削除する
 `curl -X DELETE 'http://localhost:3000/tasks/:id' -H "Content-Type:application/json"`
-　　
+
 | key        | 型     | 値の説明                 |
 |------------|--------|--------------------------|
 | id         | Int    | タスクのID               |
-　　
+
 ### 出力 [GET]
 | 返却データ |
 |------------|
-　　
+
 | key        | 型     | 値の説明                 |
 |------------|--------|--------------------------|
 | id         | Int    | タスクのID               |
@@ -91,11 +89,11 @@ todo.jsonの部分に以下の情報を入れてあげると、その情報を�
 | created_at | String | タスクの送信時刻         |
 | updated_at | String | タスクの最終編集時刻     |
 | url        | String | アクセスURL              |
-　　
+
 | サンプルレスポンス |
 | ------------------ |
 JSON形式でレスポンスを返します。
-　　
+
 ```
 {
     "id":1,
