@@ -1,6 +1,10 @@
 class TasksController < ApplicationController
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+
+  before_action :authenticate
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   protect_from_forgery :except => [:create, :update, :destroy]
+
 
   # GET /tasks
   # GET /tasks.json
@@ -76,6 +80,8 @@ class TasksController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
@@ -85,5 +91,12 @@ class TasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:title, :is_done)
+    end
+
+    def authenticate
+        authenticate_or_request_with_http_token do |token,options|
+          auth_user = User.find_by(token: token)
+          auth_user != nil ? true : false
+        end
     end
 end
