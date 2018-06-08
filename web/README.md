@@ -71,7 +71,9 @@ todo.jsonの部分に以下の情報を入れてあげると、その情報を�
 
 ### 削除 [DELETE]
 タスクを削除する
+<<<<<<< HEAD
 +
+
 `curl -X DELETE 'http://localhost:3000/tasks/:id' -H "Content-Type:application/json"`
 
 | key        | 型     | 値の説明                 |
@@ -105,6 +107,7 @@ JSON形式でレスポンスを返します。
     "updated_at":"2018-06-01T08:19:40.214Z",
     "url":"http://localhost:3000/tasks/1.json"
 }
+<<<<<<< HEAD
  ```
 
 ---  
@@ -245,12 +248,3 @@ member.jsonの部分に以下の情報（ユーザー名、パスワード）を
  ```
  no auth
  ```
-
-
-
-
-
-
-
-
- 

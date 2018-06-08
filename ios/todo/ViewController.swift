@@ -8,27 +8,53 @@
 
 import UIKit
 import Alamofire
+
+
+struct Task: Codable {
+    let id: Int
+    let title: String
+    let is_done: Bool
+    
+}
+
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
+    var tasks: [Task] = []
+
+    override func viewDidLoad() {
+        
+        print("ViewController")
+        super.viewDidLoad()
+        
+        // JSON持ってくるやつ
+        Alamofire.request("http://localhost:3000/tasks.json").responseJSON { response in
+            print(response.value!)
+            if let data = response.data {
+                do {
+                    self.tasks = try JSONDecoder().decode([Task].self, from: data)
+                    print(self.tasks) //Success!!!
+                    self.tableView.reloadData()
+                } catch {
+                    print("json convert failed in JSONDecoder", error.localizedDescription)
+                }
+                
+            }
+        }
+        print("ViewControllerEnd")
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TodoKobetsunonakami.count
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //変数を作る
         let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
         //変数の中身を作る
-        TodoCell.textLabel!.text = TodoKobetsunonakami[indexPath.row]
+        TodoCell.textLabel!.text = tasks[indexPath.row].title
         //戻り値の設定（表示する中身)
         return TodoCell
-    }
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        if UserDefaults.standard.object(forKey: "TodoList") != nil {
-            TodoKobetsunonakami = UserDefaults.standard.object(forKey: "TodoList") as! [String]
-        }
     }
 
     override func didReceiveMemoryWarning() {
