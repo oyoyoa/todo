@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="352" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdm-gr-kbO">
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdm-gr-kbO">
                         <rect key="frame" x="269" y="18" width="49" height="63"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Button" image="checkbox_unchecked (1)"/>
@@ -36,7 +36,7 @@
                 <outlet property="CellofContents" destination="KXT-WL-FUg" id="f1U-EW-w2G"/>
                 <outlet property="compliBtn" destination="Vdm-gr-kbO" id="pnT-bG-BQ1"/>
             </connections>
-            <point key="canvasLocation" x="564" y="-712"/>
+            <point key="canvasLocation" x="414" y="-742"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -17,6 +17,7 @@
 		970ABCD520CBD03C007EC827 /* image in Resources */ = {isa = PBXBuildFile; fileRef = 970ABCD420CBD03C007EC827 /* image */; };
 		970ABCD920CBD58A007EC827 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970ABCD820CBD58A007EC827 /* TableViewCell.swift */; };
 		970ABCDB20CBD5C2007EC827 /* cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970ABCDA20CBD5C2007EC827 /* cell.xib */; };
+		970ABCDD20CE88F8007EC827 /* Input.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 970ABCDC20CE88F8007EC827 /* Input.storyboard */; };
 		97F43AE720BEB9BD003B2505 /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F43AE620BEB9BD003B2505 /* AddController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		970ABCD420CBD03C007EC827 /* image */ = {isa = PBXFileReference; lastKnownFileType = folder; path = image; sourceTree = "<group>"; };
 		970ABCD820CBD58A007EC827 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		970ABCDA20CBD5C2007EC827 /* cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cell.xib; sourceTree = "<group>"; };
+		970ABCDC20CE88F8007EC827 /* Input.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Input.storyboard; sourceTree = "<group>"; };
 		97F43AE620BEB9BD003B2505 /* AddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				1A78463E20AD8A1900154534 /* ViewController.swift */,
 				1A78463C20AD8A1900154534 /* AppDelegate.swift */,
 				1A78464020AD8A1900154534 /* Main.storyboard */,
+				970ABCDC20CE88F8007EC827 /* Input.storyboard */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				970ABCDB20CBD5C2007EC827 /* cell.xib in Resources */,
+				970ABCDD20CE88F8007EC827 /* Input.storyboard in Resources */,
 				1A78464720AD8A1A00154534 /* LaunchScreen.storyboard in Resources */,
 				970ABCD520CBD03C007EC827 /* image in Resources */,
 				1A78464420AD8A1A00154534 /* Assets.xcassets in Resources */,

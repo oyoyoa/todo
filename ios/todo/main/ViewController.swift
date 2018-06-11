@@ -24,11 +24,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //cellファイルとの結びを作る
     let ToDoCellName = "ToDocell"
     
-    //完了ボタン作成宣言
+    
+//    完了ボタン生成
     var unchecked: UIImage = UIImage(named: "checkbox_unchecked (1)")!
     var checked: UIImage = UIImage(named: "checkbox_checked")!
+//    var touches = [UITouch]()
     var flg = false
-    
+
     override func viewDidLoad() {
         
         print("ViewController")
@@ -65,16 +67,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-// 削除ボタン作成（サーバーにつなぐ必要あり）
-//        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "削除") { (action, index) -> Void in
-//            self.array.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//        deleteButton.backgroundColor = UIColor.red
-//
-//        return [deleteButton]
-//    }
-
 
         //変数を作る
         let TodoCell = tableView.dequeueReusableCell(withIdentifier: ToDoCellName, for: indexPath) as! TableViewCell
@@ -83,20 +75,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         TodoCell.compliBtn.addTarget(self, action: #selector(ViewController.action), for: .touchUpInside)
 //        TodoCell.textLabel!.text = tasks[indexPath.row].title
         //戻り値の設定（表示する中身)
-        if( indexPath.row % 2 == 0) {
-            TodoCell.compliBtn.setImage(checked, for: UIControlState())
-        }
+        //        }
         return TodoCell
     }
     
-//   完了ボタンの動き作成
-    @objc func action(){
-        if flg == true {
-//            compliBtn.setImage(unchecked, for: UIControlState())
+////   完了ボタンの動き作成
+    @objc  func action(_ compliBtn: UIButton){
+        
+
+//        未完成の完了ボタン（失敗作になるかも？）
+        if flg {
+            compliBtn.setImage(unchecked, for: UIControlState())
             flg = false
             print("false")
         } else {
-//             compliBtn.setImage(checked, for: UIControlState())
+             compliBtn.setImage(checked, for: UIControlState())
             flg = true
             print("true")
         }

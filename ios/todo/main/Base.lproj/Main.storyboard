@@ -56,6 +56,7 @@
         <!--Add Controller-->
         <scene sceneID="Zsy-j6-HEi">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xvt-b8-2kj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="hQZ-HI-ccL" customClass="AddController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KN8-6m-23r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -102,9 +103,8 @@
                         <outlet property="TodoTextField" destination="rWH-44-l98" id="KXa-9U-xL8"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xvt-b8-2kj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="666" y="-170"/>
+            <point key="canvasLocation" x="628" y="-102"/>
         </scene>
     </scenes>
 </document>
