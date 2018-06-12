@@ -19,11 +19,16 @@ struct Task: Codable {
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    var userName:String!
+    var userPwd:String!
+    
     var tasks: [Task] = []
 
     override func viewDidLoad() {
         
         print("ViewController")
+        print(userName)
+        print(userPwd)
         super.viewDidLoad()
         
         // JSON持ってくるやつ
