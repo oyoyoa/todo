@@ -28,19 +28,19 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButton(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "main") as! ViewController
+        guard let userName = textField.text, let pw = textField2.text else {
+            print("データが揃ってない")
+            return
+        }
         
-        if let text = textField.text{
-            if let text = textField2.text{
-                vc.userName = textField.text
-                vc.userPwd = textField2.text
-                self.present(vc, animated: true, completion: nil)
-            }else{
-            print("ぱすないよ")
-            }
-        }else{
-        print("なまえないよ")
+        if userName.isEmpty || pw.isEmpty {
+            print("データが空")
+        } else {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "main") as! ViewController
+            vc.userName = userName
+            vc.userPwd = pw
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
