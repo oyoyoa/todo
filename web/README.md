@@ -5,7 +5,7 @@
 
 ### 入力 [POST]
 タスクを登録することができます
-`curl -X POST -H "Content-Type: application/json" -d '{ "title": "hogehoge"}' http://localhost:3000/tasks`
+`curl -X POST -H 'Authorization: Token <yourToken>' -H 'Content-Type:application/json' -d '{ "name": "hogehoge", "is_done": false }' http://localhost:3000/tasks`
 
 JSON形式のデータは以下を参照してください。
 ```
@@ -18,7 +18,7 @@ JSON形式のデータは以下を参照してください。
 
 ### 出力 [GET]
 全タスクのデータを取得することができます。
-`curl -X GET http://localhost:3000/tasks.json`
+`curl -X GET -H 'Authorization: Token <yourToken>' http://localhost:3000/tasks.json`
 | 返却データ |
 |------------|
 
@@ -42,7 +42,7 @@ JSON形式でレスポンスが返って来ます。
     "is_done":false,
     "created_at":"2018-05-31T05:32:46.171Z",
     "updated_at":"2018-05-31T08:42:15.036Z",
-    "url":"http://localhost:3000/tasks/16.json"
+    "url":"http://localhost:3000/tasks/:id.json"
 }
 ```
 
@@ -55,7 +55,7 @@ JSON形式でレスポンスが返って来ます。
 
 ### 編集 [PATCH]
 タスクの状況を変更することができます。
-`curl -X PATCH -H "Content-Type:application/json" -d '{ "is_done": "true"}' http://localhost:3000/tasks/:id `
+`curl -X PATCH -H 'Authorization: Token <yourToken>' -H 'Content-Type:application/json' -d '{ "is_done": true }' http://localhost:3000/tasks/:id `
 
 JSON形式のデータは以下を参照してください。
 
@@ -69,15 +69,15 @@ JSON形式のデータは以下を参照してください。
 
 ### 削除 [DELETE]
 タスクを削除する
-`curl -X DELETE -H 'Content-Type:application/json' http://localhost:3000/tasks/:id`
+`curl -X DELETE -H 'Authorization: Token <yourToken>' -H 'Content-Type:application/json' http://localhost:3000/tasks/:id`
 
 | key        | 型     | 値の説明                 |
 |------------|--------|--------------------------|
 | id         | Int    | タスクのID               |
 
 ### 出力 [GET]
-タスクのデータを取得することができます。
-`curl -X GET http://localhost:3000/users/:id.json`
+特定のタスクのデータを取得することができます。
+`curl -X GET -H 'Authorization: Token <yourToken>' http://localhost:3000/users/:id.json`
 | 返却データ |
 |------------|
 
