@@ -28,7 +28,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //    完了ボタン生成
     var unchecked: UIImage = UIImage(named: "checkbox_unchecked (1)")!
     var checked: UIImage = UIImage(named: "checkbox_checked")!
-//    var touches = [UITouch]()
     var flg = false
 
     override func viewDidLoad() {
@@ -39,25 +38,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //cellファイルとの結びを作る４行
         let nib : UINib = UINib(nibName: "cell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: ToDoCellName)
-
         tableView.delegate = self
         tableView.dataSource = self
         
         
         // JSON持ってくるやつ
         Alamofire.request("http://localhost:3000/tasks.json").responseJSON { response in
-            print(response.value!)
-            if let data = response.data {
-                do {
-                    self.tasks = try JSONDecoder().decode([Task].self, from: data)
-                    print(self.tasks) //Success!!!
-                    self.tableView.reloadData()
-                } catch {
-                    print("json convert failed in JSONDecoder", error.localizedDescription)
-                }
-                
+            guard let data = response.data else { return } //response.valueがnilならこれより下の処理は実行しない
+            print(data)
+            do {
+                self.tasks = try JSONDecoder().decode([Task].self, from: data)
+                print(self.tasks) //Success!!!
+                self.tableView.reloadData()
+            } catch {
+                print("json convert failed in JSONDecoder", error.localizedDescription)
             }
-        }
+            }
+        
         print("ViewControllerEnd")
     }
     
@@ -66,24 +63,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return tasks.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         //変数を作る
         let TodoCell = tableView.dequeueReusableCell(withIdentifier: ToDoCellName, for: indexPath) as! TableViewCell
         //変数の中身を作る
         TodoCell.CellofContents.text = tasks[indexPath.row].title
         TodoCell.compliBtn.addTarget(self, action: #selector(ViewController.action), for: .touchUpInside)
-//        TodoCell.textLabel!.text = tasks[indexPath.row].title
         //戻り値の設定（表示する中身)
-        //        }
+       
         return TodoCell
     }
     
 ////   完了ボタンの動き作成
     @objc  func action(_ compliBtn: UIButton){
         
-
-//        未完成の完了ボタン（失敗作になるかも？）
         if flg {
             compliBtn.setImage(unchecked, for: UIControlState())
             flg = false
@@ -98,12 +92,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+   
 
 }
 
