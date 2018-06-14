@@ -17,6 +17,8 @@
 		970ABCD520CBD03C007EC827 /* image in Resources */ = {isa = PBXBuildFile; fileRef = 970ABCD420CBD03C007EC827 /* image */; };
 		970ABCD920CBD58A007EC827 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970ABCD820CBD58A007EC827 /* TableViewCell.swift */; };
 		970ABCDB20CBD5C2007EC827 /* cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970ABCDA20CBD5C2007EC827 /* cell.xib */; };
+		1AB1140A20CFBE0E00407C1E /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AB1140920CFBE0E00407C1E /* login.storyboard */; };
+		1AB1140E20CFC30600407C1E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB1140D20CFC30600407C1E /* LoginViewController.swift */; };
 		97F43AE720BEB9BD003B2505 /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F43AE620BEB9BD003B2505 /* AddController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		970ABCD420CBD03C007EC827 /* image */ = {isa = PBXFileReference; lastKnownFileType = folder; path = image; sourceTree = "<group>"; };
 		970ABCD820CBD58A007EC827 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		970ABCDA20CBD5C2007EC827 /* cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cell.xib; sourceTree = "<group>"; };
+		1AB1140920CFBE0E00407C1E /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
+		1AB1140D20CFC30600407C1E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		97F43AE620BEB9BD003B2505 /* AddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,8 @@
 				970ABCD120CBCF78007EC827 /* cell */,
 				1A78464320AD8A1A00154534 /* Assets.xcassets */,
 				1A78464520AD8A1A00154534 /* LaunchScreen.storyboard */,
+				1AB1140920CFBE0E00407C1E /* login.storyboard */,
+				1AB1140D20CFC30600407C1E /* LoginViewController.swift */,
 				1A78464820AD8A1A00154534 /* Info.plist */,
 			);
 			path = todo;
@@ -167,7 +173,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				970ABCDB20CBD5C2007EC827 /* cell.xib in Resources */,
+=======
+				1AB1140A20CFBE0E00407C1E /* login.storyboard in Resources */,
+>>>>>>> ログインページを作りました
 				1A78464720AD8A1A00154534 /* LaunchScreen.storyboard in Resources */,
 				970ABCD520CBD03C007EC827 /* image in Resources */,
 				1A78464420AD8A1A00154534 /* Assets.xcassets in Resources */,
@@ -201,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				970ABCD920CBD58A007EC827 /* TableViewCell.swift in Sources */,
+				1AB1140E20CFC30600407C1E /* LoginViewController.swift in Sources */,
 				97F43AE720BEB9BD003B2505 /* AddController.swift in Sources */,
 				1A78463F20AD8A1900154534 /* ViewController.swift in Sources */,
 				1A78463D20AD8A1900154534 /* AppDelegate.swift in Sources */,
