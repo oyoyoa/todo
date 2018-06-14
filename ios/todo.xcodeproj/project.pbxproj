@@ -173,11 +173,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				970ABCDB20CBD5C2007EC827 /* cell.xib in Resources */,
-=======
 				1AB1140A20CFBE0E00407C1E /* login.storyboard in Resources */,
->>>>>>> ログインページを作りました
+				1AB1140A20CFBE0E00407C1E /* login.storyboard in Resources */,
 				1A78464720AD8A1A00154534 /* LaunchScreen.storyboard in Resources */,
 				970ABCD520CBD03C007EC827 /* image in Resources */,
 				1A78464420AD8A1A00154534 /* Assets.xcassets in Resources */,
