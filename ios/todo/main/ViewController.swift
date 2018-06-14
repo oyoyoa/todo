@@ -23,7 +23,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var toDoCells: [TableViewCell] = []
     //cellファイルとの結びを作る
     let ToDoCellName = "ToDocell"
-    
+	
+	var userName:String!
+	var userPwd:String!
     
 //    完了ボタン生成
     var unchecked: UIImage = UIImage(named: "checkbox_unchecked (1)")!
